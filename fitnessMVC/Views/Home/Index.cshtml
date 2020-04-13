@@ -1,0 +1,170 @@
+﻿@using fitnessMVC.Model
+@using fitnessMVC.Helpers
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<!---------------------------- SLIDER STARTED --------------------------->
+<section id="SLIDER">
+    @{
+        Html.RenderAction("sliderPartial", "Home");
+    }
+
+</section>
+<!------------------------------SLIDER ENDED-------------------------->
+<!---------------------------- COLOR 3 STARTED --------------------------->
+<section id="color3">
+    @{
+        Html.RenderAction("colorPartial", "Home");
+    }
+
+</section>
+<!---------------------------- COLOR 3 ENDED --------------------------->
+<!---------------------------POSTS STARTED------------------------------>
+<section id="posts">
+    <div class="col-lg-12 banner">
+        <video src="video/videoplayback.mp4" autoplay muted></video>
+        <h2>POSTLAR</h2>
+    </div>
+</section>
+<!------------------------------POSTS ENDED------------------------------>
+<!---------------------Main container start ---------------------------->
+<main class="main-container">
+    @{
+        Html.RenderAction("Postpartial", "Home");
+    }
+
+</main>
+<!----------------------------Main container end--------------------------->
+<!-------------------------PNGS STARTED----------------->
+<section id="pngs">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="png1 col-lg-6 ">
+                <img class="left" src="photo/kisi2.png" alt="">
+            </div>
+            <div class="png2 col-lg-6 ">
+                <img class="right" src="photo/qiz3.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!-------------------------------PNGS ENDED---------------------------------------->
+<!----------------------------PARALLAX STARTED----------------------------->
+<section id="parallax">
+    <div class="col-lg-12">
+        <div class="container">
+            <div class="row">
+                <div class="p-item col-lg-3 col-md-6 col-s-12 ">
+                    <img src="/PublicFront/assets/photo/p1.png" alt="">
+                    <div class="context">
+                        <h3>SAĞLAM FIKIR</h3>
+                        <p>Lorem ipsum proin gravida nibh vel velit auctor aliquet. Aenean lorem sollicitudin, auci elit nascetur.</p>
+                    </div>
+                </div>
+                <div class="p-item col-lg-3 col-md-6 col-s-12 ">
+                    <img src="/PublicFront/assets/photo/p2.png" alt="">
+                    <div class="context">
+                        <h3>DOĞRU QİDA</h3>
+                        <p>Lorem ipsum proin gravida nibh vel velit auctor aliquet. Aenean lorem sollicitudin, auci elit nascetur.</p>
+                    </div>
+                </div>
+                <div class="p-item col-lg-3 col-md-6 col-s-12 ">
+                    <img src="/PublicFront/assets/photo/p3.png" alt="">
+                    <div class="context">
+                        <h3>STRATEGİYALAR</h3>
+                        <p>Lorem ipsum proin gravida nibh vel velit auctor aliquet. Aenean lorem sollicitudin, auci elit nascetur.</p>
+                    </div>
+                </div>
+                <div class="p-item col-lg-3 col-md-6 col-s-12 ">
+                    <img src="/PublicFront/assets/photo/p4.png" alt="">
+                    <div class="context">
+                        <h3>PROQRAMLAR</h3>
+                        <p>Lorem ipsum proin gravida nibh vel velit auctor aliquet. Aenean lorem sollicitudin, auci elit nascetur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-------------------------------PARALLAX ENDED----------------------->
+<!-----------------------------BG-GRID STARTED----------------------->
+<div class="bg-grid col-lg-12 col-md-12 col-sm-12">
+    <p>ÖZ PROQRAMINI SEÇ</p><br>
+    <h2>HƏRƏKƏTLƏR & MƏŞQLƏR</h2>
+</div>
+
+<!------------------------BG-GRID ENDED------------------------->
+<!-----------------------GRIDGYM STARTED----------------------->
+
+<section id="gridgym">
+    @{
+        Html.RenderAction("mansoryPartial", "Home");
+    }
+
+</section>
+
+<!---------------------------GRIDGYM end--------------------------->
+<!---------------------------BMI STARTED--------------------------->
+<section id="bmi" style="background:url(../../PublicFront/assets/photo/h6-bckr-2.jpg);">
+    <div class="container">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-s-12">
+                    <h3 style="color:black;">KÜTLƏ İNDEKSİ HESABLAYİCİ</h3>
+                    <div class="container">
+                        <div class="row">
+                            <div class="bms col-lg-4">
+                                <span style="color:black;">BMI</span>
+                            </div>
+                            <div class="stss col-lg-8">
+                                <span style="color:black;"> ÇƏKİ VƏZİYYƏTİ</span>
+                            </div>
+                            <div class="bm col-lg-4">
+                                <span> 18.5 və aşağı</span>
+                            </div>
+                            <div class="sts col-lg-8">
+                                <span>Çəki azlığı</span>
+                            </div>
+                            <div class="bm col-lg-4">
+                                <span>18.5 - 24.9</span>
+                            </div>
+                            <div class="sts col-lg-8">
+                                <span>Sağlıqlı</span>
+                            </div>
+                            <div class="bm col-lg-4">
+                                <span>25.0 - 29.9</span>
+                            </div>
+                            <div class="sts col-lg-8">
+                                <span>Çəki artıqlığı</span>
+                            </div>
+                            <div class="bm col-lg-4">
+                                <span>30.0 - və üstü</span>
+                            </div>
+                            <div class="sts col-lg-8">
+                                <span>Obez</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-s-12">
+                    <h3>KÜTLƏ İNDEKSİNİ HESABLA</h3>
+                    <div class="container">
+                        <div class="row">
+                            <form name="bmiForm">
+                                <input class="form-control" name="height" size="10" placeholder="Boyunuz/sm" type="text">
+                                <input class="form-control" name="weight" size="10" placeholder="Çəkiniz/kq" type="text">
+                                <input class="form-control" placeholder="Yaşınız" type="text">
+                                <input class="hsbla" type="button" value="HESABLA" onClick="calculateBmi()"><br>
+                                <p>Kütlə indeksin:</p> <input class="indeks" type="text" name="bmi" size="10">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!----------------------------BMI ENDED---------------------------->

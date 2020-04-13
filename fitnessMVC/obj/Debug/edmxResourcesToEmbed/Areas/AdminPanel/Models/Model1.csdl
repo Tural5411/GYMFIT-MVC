@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BlogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_color3">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Header" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_companyName">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Header" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Place" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_corusel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Header" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Context" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="PostTime" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tbl_post_category" Relationship="Self.FK_tbl_corusel_tbl_post_category" FromRole="tbl_corusel" ToRole="tbl_post_category" />
+    <NavigationProperty Name="tbl_user" Relationship="Self.FK_tbl_corusel_tbl_user" FromRole="tbl_corusel" ToRole="tbl_user" />
+  </EntityType>
+  <EntityType Name="tbl_link">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Header" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_mainPost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Header" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Context" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="PostTime" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tbl_post_category" Relationship="Self.FK_tbl_mainPost_tbl_post_category" FromRole="tbl_mainPost" ToRole="tbl_post_category" />
+    <NavigationProperty Name="tbl_user" Relationship="Self.FK_tbl_mainPost_tbl_user" FromRole="tbl_mainPost" ToRole="tbl_user" />
+  </EntityType>
+  <EntityType Name="tbl_mansoryPhoto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="longphoto" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="normalPhoto" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Header" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_parallax">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Header" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_parallax2">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Header" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_post_category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_corusel" Relationship="Self.FK_tbl_corusel_tbl_post_category" FromRole="tbl_post_category" ToRole="tbl_corusel" />
+    <NavigationProperty Name="tbl_mainPost" Relationship="Self.FK_tbl_mainPost_tbl_post_category" FromRole="tbl_post_category" ToRole="tbl_mainPost" />
+    <NavigationProperty Name="tbl_trend" Relationship="Self.FK_tbl_trend_tbl_post_category" FromRole="tbl_post_category" ToRole="tbl_trend" />
+  </EntityType>
+  <EntityType Name="tbl_slider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Header" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_tag">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tagName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_trend">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Header" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Context" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="PostTime" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tbl_post_category" Relationship="Self.FK_tbl_trend_tbl_post_category" FromRole="tbl_trend" ToRole="tbl_post_category" />
+    <NavigationProperty Name="tbl_user" Relationship="Self.FK_tbl_trend_tbl_user" FromRole="tbl_trend" ToRole="tbl_user" />
+  </EntityType>
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="UserMail" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="UserPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_corusel" Relationship="Self.FK_tbl_corusel_tbl_user" FromRole="tbl_user" ToRole="tbl_corusel" />
+    <NavigationProperty Name="tbl_mainPost" Relationship="Self.FK_tbl_mainPost_tbl_user" FromRole="tbl_user" ToRole="tbl_mainPost" />
+    <NavigationProperty Name="tbl_trend" Relationship="Self.FK_tbl_trend_tbl_user" FromRole="tbl_user" ToRole="tbl_trend" />
+  </EntityType>
+  <Association Name="FK_tbl_corusel_tbl_post_category">
+    <End Role="tbl_post_category" Type="Self.tbl_post_category" Multiplicity="0..1" />
+    <End Role="tbl_corusel" Type="Self.tbl_corusel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_post_category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_corusel">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_corusel_tbl_user">
+    <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="0..1" />
+    <End Role="tbl_corusel" Type="Self.tbl_corusel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_corusel">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_mainPost_tbl_post_category">
+    <End Role="tbl_post_category" Type="Self.tbl_post_category" Multiplicity="0..1" />
+    <End Role="tbl_mainPost" Type="Self.tbl_mainPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_post_category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_mainPost">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_mainPost_tbl_user">
+    <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="0..1" />
+    <End Role="tbl_mainPost" Type="Self.tbl_mainPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_mainPost">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_trend_tbl_post_category">
+    <End Role="tbl_post_category" Type="Self.tbl_post_category" Multiplicity="0..1" />
+    <End Role="tbl_trend" Type="Self.tbl_trend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_post_category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_trend">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_trend_tbl_user">
+    <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="0..1" />
+    <End Role="tbl_trend" Type="Self.tbl_trend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_trend">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BlogDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tbl_admin" EntityType="Self.tbl_admin" />
+    <EntitySet Name="tbl_color3" EntityType="Self.tbl_color3" />
+    <EntitySet Name="tbl_companyName" EntityType="Self.tbl_companyName" />
+    <EntitySet Name="tbl_contact" EntityType="Self.tbl_contact" />
+    <EntitySet Name="tbl_corusel" EntityType="Self.tbl_corusel" />
+    <EntitySet Name="tbl_link" EntityType="Self.tbl_link" />
+    <EntitySet Name="tbl_mainPost" EntityType="Self.tbl_mainPost" />
+    <EntitySet Name="tbl_mansoryPhoto" EntityType="Self.tbl_mansoryPhoto" />
+    <EntitySet Name="tbl_parallax" EntityType="Self.tbl_parallax" />
+    <EntitySet Name="tbl_parallax2" EntityType="Self.tbl_parallax2" />
+    <EntitySet Name="tbl_post_category" EntityType="Self.tbl_post_category" />
+    <EntitySet Name="tbl_slider" EntityType="Self.tbl_slider" />
+    <EntitySet Name="tbl_tag" EntityType="Self.tbl_tag" />
+    <EntitySet Name="tbl_trend" EntityType="Self.tbl_trend" />
+    <EntitySet Name="tbl_user" EntityType="Self.tbl_user" />
+    <AssociationSet Name="FK_tbl_corusel_tbl_post_category" Association="Self.FK_tbl_corusel_tbl_post_category">
+      <End Role="tbl_post_category" EntitySet="tbl_post_category" />
+      <End Role="tbl_corusel" EntitySet="tbl_corusel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_corusel_tbl_user" Association="Self.FK_tbl_corusel_tbl_user">
+      <End Role="tbl_user" EntitySet="tbl_user" />
+      <End Role="tbl_corusel" EntitySet="tbl_corusel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_mainPost_tbl_post_category" Association="Self.FK_tbl_mainPost_tbl_post_category">
+      <End Role="tbl_post_category" EntitySet="tbl_post_category" />
+      <End Role="tbl_mainPost" EntitySet="tbl_mainPost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_mainPost_tbl_user" Association="Self.FK_tbl_mainPost_tbl_user">
+      <End Role="tbl_user" EntitySet="tbl_user" />
+      <End Role="tbl_mainPost" EntitySet="tbl_mainPost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_trend_tbl_post_category" Association="Self.FK_tbl_trend_tbl_post_category">
+      <End Role="tbl_post_category" EntitySet="tbl_post_category" />
+      <End Role="tbl_trend" EntitySet="tbl_trend" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_trend_tbl_user" Association="Self.FK_tbl_trend_tbl_user">
+      <End Role="tbl_user" EntitySet="tbl_user" />
+      <End Role="tbl_trend" EntitySet="tbl_trend" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

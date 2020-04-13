@@ -1,0 +1,64 @@
+﻿@model IEnumerable<fitnessMVC.Model.tbl_mainPost>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>POST</h2>
+
+<p>
+    <a href="@Url.Action("Create","tbl_mainPost")">YARAT</a> @*@Html.ActionLink("YARAT", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Header)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Context)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_post_category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_user.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td width="150">
+                @Html.DisplayFor(modelItem => item.Header)
+        </td>
+        <td width="50" style="overflow:hidden;" >
+            <div style="height:50px;"> @Html.Raw(item.Context)  </div>
+        </td>
+        <td>
+            <img width="265" style="height:170px;" class="img-thumbnail" src="@Html.DisplayFor(modelItem => item.Photo)" alt="Alternate Text" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_post_category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_user.UserName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detal", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

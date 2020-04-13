@@ -1,0 +1,26 @@
+﻿@model IEnumerable<fitnessMVC.Model.tbl_mainPost>
+@{
+    Layout = null;
+}
+<div class="w-boxed-post">
+    <ul>
+        @foreach (var ma in Model)
+        {
+            <li>
+                <a href="#" style="background: url(@ma.Photo); background-size:cover; background-repeat:no-repeat; ">
+                    <div class="box-wrapper">
+                        <div class="box-left">
+                            <span>*</span>
+                        </div>
+                        <div class="box-right">
+                            <h3 class="p-title">@ma.Header</h3>
+                            <div class="p-icons">
+                                213 likes . 124 comments
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        }
+    </ul>
+</div>

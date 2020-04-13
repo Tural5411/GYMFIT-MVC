@@ -1,0 +1,171 @@
+﻿@{
+    if (Session["adminId"] == null)
+    {
+        Response.Redirect("/AdminPanel/AdminHome/Login/");
+    }
+} 
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from jituchauhan.com/influence/landingpage/influence/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Oct 2019 08:15:22 GMT -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Areas/AdminPanel/AdminFront/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Areas/AdminPanel/AdminFront/assets/vendor/fonts/circular-std/style.css" >
+    <link rel="stylesheet" href="~/Areas/AdminPanel/AdminFront/assets/libs/css/style.css">
+    <link rel="stylesheet" href="~/Areas/AdminPanel/AdminFront/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <title>ADMINPANEL</title>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.html"><img src="~/Areas/AdminPanel/AdminFront/assets/images/logo.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <input class="form-control" type="text" placeholder="Search..">
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="~/Areas/AdminPanel/AdminFront/assets/Tural1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="position:relative; top:23px; padding:10px;"  href="#">@Session["email"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="padding:20px;" href="/AdminPanel/AdminHome/Logout/" class="btn btn-info btn-lg">
+                                <span class="glyphicon glyphicon-log-out"></span> ÇIXIŞ
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="@Url.Action("index","tbl_slider")"><i class="fa fa-fw fa-user-circle"></i>Slider <span class="badge badge-success">3</span></a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="@Url.Action("index","tbl_color3")"><i class="fa fa-fw fa-user-circle"></i>3Color </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="@Url.Action("index","tbl_mainPost")"><i class="fa fa-fw fa-user-circle"></i>Main-Post </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="@Url.Action("index","tbl_mansoryPhoto")"><i class="fa fa-fw fa-user-circle"></i>Mansory-Photo </a>
+                            </li>
+
+                            <li class="nav-divider">
+                                Footer
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("index","tbl_companyName")" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i> Company </a>
+                                <a class="nav-link" href="@Url.Action("index","tbl_contact")" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i> Contact </a>
+
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            @RenderBody()
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end pageheader  -->
+                    <!-- ============================================================== -->
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            2018 © Influence - Designed and Developed by<a href="https://themeforest.net/user/jitu/portfolio" target="_blank" class="ml-1">Jituchuahan</a>.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                                <a href="javascript: void(0);">About</a>
+                                <a href="javascript: void(0);">Support</a>
+                                <a href="javascript: void(0);">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    @RenderSection("tinyMCE", required: false);
+    <!----- jquery 3.3.1  --->
+    <script src="~/Areas/AdminPanel/AdminFront/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <!----- bootstap bundle js--->
+    <script src="~/Areas/AdminPanel/AdminFront/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <!----- slimscroll js--->
+    <script src="~/Areas/AdminPanel/AdminFront/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <!----- main js--->
+    <script src="~/Areas/AdminPanel/AdminFront/assets/libs/js/main-js.js"></script>
+</body>
+
+</html>

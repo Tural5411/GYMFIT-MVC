@@ -1,0 +1,51 @@
+﻿@model IEnumerable<fitnessMVC.Model.tbl_slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>SLİDER</h2>
+
+<p>
+    <a class="btn btn-dark" href="@Url.Action("create","tbl_slider")">YARAT</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Header)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Header)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            <img style="width:25%;" class="img-thumbnail" src=" @Html.DisplayFor(modelItem => item.Photo)" alt="Alternate Text" />
+
+        </td>
+        <td style="color:white;">
+                <button style="padding: 0 30px;border:none; background:#00ff00; color:white;"> @Html.ActionLink("Edit", "Edit", new { id = item.Id })</button>
+                <button style="padding: 0 26px;border:none; background:#ffd800; color:white;">  @Html.ActionLink("Detal", "Details", new { id = item.Id }) </button>
+                <button style="padding: 0 35px;border:none; background:#ff2e2e; color:white;"> @Html.ActionLink("Sil", "Delete", new { id = item.Id }) </button>
+           
+
+
+               
+        </td>
+    </tr>
+}
+
+</table>

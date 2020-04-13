@@ -1,0 +1,131 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<fitnessMVC.Model.tbl_mainPost>
+@using fitnessMVC.Helpers
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="~/PublicFront/assets/vendors/bootstrap/bootstrap.css">
+<link rel="stylesheet" href="~/PublicFront/assets/css/main-style.css">
+<link rel="stylesheet" href="~/PublicFront/assets/css/responsive-style.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700,900&amp;subset=latin-ext" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Tooltip plugin (zebra) css file -->
+<link rel="stylesheet" type="text/css" href="~/PublicFront/assets/plugins/zebra-tooltip/zebra_tooltips.min.css">
+<!-- Owl Carousel plugin css file. only used pages -->
+<link rel="stylesheet" type="text/css" href="~/PublicFront/assets/plugins/owl-carousel/assets/owl.carousel.min.css">
+
+<section style="padding: 100px 0; z-index: 100;" class="main-content">
+    <div class="main-content-wrapper">
+        <div class="content-body">
+            <div class="content-timeline">
+                <!--Timeline items start -->
+                <div class="timeline-items">
+
+                    @foreach (var x in Model)
+                    {
+                        <div class="timeline-item">
+                            <div class="timeline-left">
+                                <div class="timeline-left-wrapper">
+                                    <a href="#" class="timeline-category" data-zebra-tooltip title="Technology"><i style="font-size: 22px; font-weight: 800; padding: 1px;" class="fas fa-globe"></i></a>
+                                    <span class="timeline-date">3 min ago</span>
+                                </div>
+                            </div>
+                            <div class="timeline-right">
+                                <div class="timeline-post-image">
+                                    <a href="/Postpartial/@SeoHelper.ToSeoUrl(x.Header).ToLower()-@x.Id">
+
+                                        <img src="@x.Photo" width="260">
+                                    </a>
+                                </div>
+                                <div class="timeline-post-content">
+                                    <a href="#" class="timeline-category-name">@x.tbl_post_category.CategoryName</a>
+                                    @*<a href="@Url.Action("postDetail","Home" ,new { id = x.Id} )">*@
+                                    <a href="/Postpartial/@SeoHelper.ToSeoUrl(x.Header).ToLower()-@x.Id">
+                                        <h3 class="timeline-post-title">@x.Header</h3>
+                                    </a>
+                                    <div class="timeline-post-info">
+                                        <a href="#" class="author">@x.tbl_user.UserName</a>
+                                        <span class="dot"></span>
+                                        <span class="comment">32 comments</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                <!--Timeline items end -->
+                <!--Data load more button start  -->
+                <div class="load-more">
+                    <button class="load-more-button material-button" type="button">
+                        <span style="letter-spacing:10px; font-size:20px; font-weight:800; color:#0094ff;">@Html.PagedListPager(Model, Page => Url.Action("Postpartial", new { Page }), PagedListRenderOptions.Classic)</span>
+                    </button>
+                </div>
+                <!--Data load more button start  -->
+            </div>
+        </div>
+        <div class="content-sidebar">
+            <div class="sidebar_inner">
+                <!--Timeline header area start -->
+                @{
+                    Html.RenderAction("BlogCategoryPartial", "Home");
+                }
+
+
+                <!--Timeline header area end -->
+                <div class="widget-item">
+                    <div class="w-header">
+                        <div class="w-title">Ən çox baxılanlar</div>
+                        <div class="w-seperator"></div>
+                    </div>
+                    <div class="w-boxed-post">
+                        <ul>
+                            @foreach (var x in Model.Take(3))
+                            {
+                                <li>
+                                    <a href="#" style="background: url(@x.Photo); background-size:cover; background-repeat:no-repeat; object-fit:cover; background-position:center center; ">
+                                        <div class="box-wrapper">
+                                            <div class="box-left">
+                                                <span>@x.Id</span>
+                                            </div>
+                                            <div class="box-right">
+                                                <h3 class="p-title">@x.Header</h3>
+                                                <div class="p-icons">
+                                                    213 likes . 124 comments
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="widget-item">
+                    <div class="w-header">
+                        <div class="w-title">Carousel Posts</div>
+                        <div class="w-seperator"></div>
+                    </div>
+                    <div class="w-carousel-post">
+                        <div class="owl-carousel" id="widgetCarousel">
+                            @foreach (var x in Model)
+                            {<div class="item">
+                                    <a href="#">
+                                        <img src="@x.Photo" width="300">
+                                        <span class="w-post-title">@x.Header</span>
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="seperator"></div>
+                <a href="#" class="widget-ad-box">
+                    <img src="~/PublicFront/assets/photo/adbox300x250.png" width="300" height="250">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

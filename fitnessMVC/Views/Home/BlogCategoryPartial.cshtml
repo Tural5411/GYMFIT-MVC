@@ -1,0 +1,15 @@
+﻿@model IEnumerable<fitnessMVC.Model.tbl_post_category>
+    @using fitnessMVC.Helpers
+@{
+    Layout = null;
+}
+<div class="post-list-header">
+    <span class="post-list-title">Kategoriyalar</span>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li style="font-size:20px; font-weight:600;"><a href="/Postpartial/@SeoHelper.ToSeoUrl(item.CategoryName).ToLower()/@item.Id">@item.CategoryName</a> <span>@item.tbl_mainPost.Count()</span> </li>
+        }
+    </ul>
+</div>
+

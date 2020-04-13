@@ -1,0 +1,11 @@
+﻿@model IEnumerable<fitnessMVC.Model.tbl_parallax2>
+@{
+    Layout = null;
+}
+<div class="bg-grid col-lg-12 col-md-12 col-sm-12">
+    @foreach (var item in Model)
+    {
+        <p>@item.Header</p><br>
+        <h2>@item.Description</h2>
+    }
+</div>
